@@ -29,3 +29,6 @@ client.connection.on('transaction',function(data){
 client.connection.on('csv_finished',function(){
   client.connection.emit('join','clientevent');
 });
+if(window){
+  window.client = client;
+}
