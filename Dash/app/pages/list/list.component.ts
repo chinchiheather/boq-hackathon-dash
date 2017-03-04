@@ -1,25 +1,20 @@
 import { Component } from "@angular/core";
+import { TransactionService } from "../../shared/transaction.service";
 
 @Component({
   selector: "list",
   templateUrl: "pages/list/list.component.html",
-  styleUrls: ["pages/list/list.css"]
+  styleUrls: ["pages/list/list.css"],
+  providers: [TransactionService]
 })
 export class ListComponent {
-  transactions: [
-    {
-      name: 'Pencils',
-      amount: '$3.99',
-      tax: '$0.39'
-    },
-    {
-      name: 'Laptop',
-      amount: '$1899'
-      tax: '$189.90'
-    }
-  ];
+  public transactions;
 
-  constructor() {
-    console.log('ListComponent');
+  constructor(private transactionService: TransactionService) {
   }
+
+  ngOnInit() {
+    this.transactionService.getTransaction().subscribe(transactions => this.transactions = transactions);
+  }
+
 }

@@ -1,9 +1,25 @@
-<!--<Label text="Transaction List"></Label>-->
+<StackLayout class="list-container" orientation="vertical">
 
-<!--<StackLayout orientation="vertical" width="350px">-->
-  <!--&lt;!&ndash;<StackLayout [ngFor]="let transaction of transactions" orientation="horizontal">&ndash;&gt;-->
-    <!--&lt;!&ndash;<Label [text]="transaction.name"></Label>&ndash;&gt;-->
-    <!--&lt;!&ndash;<Label [text]="transaction.amount"></Label>&ndash;&gt;-->
-    <!--&lt;!&ndash;<Label [text]="transaction.tax"></Label>&ndash;&gt;-->
-  <!--&lt;!&ndash;</StackLayout>&ndash;&gt;-->
-<!--</StackLayout>-->
+  <StackLayout orientation="horizontal" class="transaction-row">
+    <Label text="name" verticalAlignment="center"></Label>
+    <Label text="amount" verticalAlignment="center"></Label>
+    <Label text="tax claim" verticalAlignment="center"></Label>
+  </StackLayout>
+
+  <ScrollView fillViewport="true">
+    <StackLayout orientation="vertical" class="table">
+      <StackLayout *ngFor="let transaction of transactions; let even = even; let odd = odd;"
+                   orientation="horizontal"
+                   class="transaction-row"
+                   [class.even]="even"
+                   [class.odd]="odd">
+        <Label [text]="transaction.name" verticalAlignment="center"></Label>
+        <Label [text]="transaction.amount" verticalAlignment="center"></Label>
+        <Label [text]="transaction.tax" verticalAlignment="center"></Label>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+
+</StackLayout>
+
+
