@@ -1,15 +1,2 @@
 ﻿@import "nativescript-theme-core/css/sky.css";
 
-TextField {
-    height: 40px;
-}
-
-StackLayout {
-    background: red;
-    width: 100px;
-    height: 450px;
-}
-.submit-button {
-    width: 80%;
-    height: 40px;
-}
