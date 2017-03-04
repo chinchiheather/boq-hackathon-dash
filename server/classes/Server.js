@@ -34,9 +34,6 @@ Server.prototype.initialize = function(opts) {
   extend(self, new EventEmitter());
   self.forwardEvents = settings.forwardEvents;
   var clients = self.clients = {};
-  setInterval(self.handleErrors(function() {
-    self.sendUpdate()
-  }), 1000 / 22); // every 45ms
 };
 
 // Setup the client connection - register events, etc
@@ -124,3 +121,15 @@ Server.prototype.broadcast = function(id, event) {
     connection.emit.apply(connection, args)
   })
 };
+
+// try catch wrapper fgj
+Server.prototype.handleErrors = function(func) {
+  var self = this
+  return function() {
+    try {
+      return func.apply(this,arguments)
+    } catch (error) {
+      self.emit('error',error)
+    }
+  }
+}
