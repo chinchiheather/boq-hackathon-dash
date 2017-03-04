@@ -1,8 +1,21 @@
-<StackLayout orientation="horizontal" width="350px">
-  <Label text="Current savings"></Label>
-  <Label text="$1245.67"></Label>
-</StackLayout>
+<StackLayout orientation="vertical" class="dashboard-container">
+  <StackLayout orientation="vertical" class="feature">
+    <Image src="~/images/piggy-icon.PNG" stretch="aspectFit"></Image>
+    <Label text="$1,245.67" class="dollar-value"></Label> <!-- todo: dynamically get this value -->
+    <Label text="estimated tax back" class="caption"></Label>
+  </StackLayout>
 
-<!-- show current status -->
-<Button text="Details" (tap)="onDetailsClick()"></Button>
-<Button text="Submit Tax"></Button>
+  <StackLayout orientation="vertical" class="feature">
+    <Image src="~/images/spend-icon.PNG" stretch="aspectFit"></Image>
+    <Label text="$12,450.67" class="dollar-value"></Label>
+    <Label text="total taxable spend" class="caption"></Label>
+  </StackLayout>
+
+  <DockLayout stretchLastChild="false">
+    <StackLayout orientation="horizontal" class="button-container" dock="bottom">
+      <Button text="Submit Tax" class="tax-btn"></Button>
+      <Button text="Details" (tap)="onDetailsClick()" class="details-btn"></Button>
+    </StackLayout>
+  </DockLayout>
+
+</StackLayout>

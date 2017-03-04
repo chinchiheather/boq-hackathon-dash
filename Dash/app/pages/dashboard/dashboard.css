@@ -1,7 +1,50 @@
+.dashboard-container {
+    width: 100%;
+    height: 100%;
+}
+
+.feature {
+    width: 100%;
+    margin-top: 32px;
+}
+
+Image {
+    width: 100px;
+    height: auto;
+}
+
+DockLayout {
+    height: 100%;
+}
+
+.button-container {
+    width: 100%;
+    height: 60px;
+}
+
 Button {
-    height: 40px;
+    width: 50%;
+    height: 50px;
+}
+
+.details-btn {
+    background-color: yellowgreen;
+    color: #212121;
+}
+
+.tax-btn {
+    color: #727272;
 }
 
 Label {
-    height: 40px;
+    text-align: center;
+}
+
+.dollar-value {
+    color: #212121;
+    font-size: 32px;
+}
+
+.caption {
+    color: #727272;
 }
