@@ -14,7 +14,7 @@ module.exports = Server
 
 function Server(opts) {
   // force instantiation via `new` keyword 
-  if(!(this instanceof Server)) { return new Server(opts) }
+  if (!(this instanceof Server)) { return new Server(opts) }
   this.initialize(opts)
 }
 
@@ -29,14 +29,14 @@ Server.prototype.initialize = function(opts) {
     ]
   };
   var settings = self.settings = extend({}, defaults, opts);
-  
+
   // prepare a server object to return
   extend(self, new EventEmitter());
   self.forwardEvents = settings.forwardEvents;
   var clients = self.clients = {};
   setInterval(self.handleErrors(function() {
     self.sendUpdate()
-  }), 1000/22); // every 45ms
+  }), 1000 / 22); // every 45ms
 
 
 
@@ -78,36 +78,34 @@ Server.prototype.removeClient = function(duplexStream) {
 
 Server.prototype.bindClientEvents = function(client) {
   var self = this;
-  var game = self.game;
   var id = client.id;
   var connection = client.connection;
-  //var createSky = require('voxel-sky')(game);
 
   // forward chat message
   connection.on('chat', self.handleErrors(function(message) {
     // ignore if no message provided
-    if (!message.text) return
+    if (!message.text) return;
     // limit chat message length
-    if (message.text.length > 140) message.text = message.text.substr(0, 140)
+    if (message.text.length > 140) message.text = message.text.substr(0, 140);
     self.broadcast(null, 'chat', message)
   }))
 
   // when user ready ( game created, etc )
   connection.on('created', self.handleErrors(function() {
     // emit client.created for module consumers
-    self.emit('client.created',client)
+    self.emit('client.created', client);
   }))
 
 
   // forward custom events
   self.forwardEvents.map(function(eventName) {
-    connection.on(eventName,function() {
+    connection.on(eventName, function() {
       var args = [].slice.apply(arguments)
-      // add event name
+        // add event name
       args.unshift(eventName)
-      // add client id
+        // add client id
       args.unshift(id)
-      self.broadcast.apply(self,args)
+      self.broadcast.apply(self, args)
     })
   })
 
@@ -116,16 +114,16 @@ Server.prototype.bindClientEvents = function(client) {
 // send message to all clients
 Server.prototype.broadcast = function(id, event) {
   var self = this
-  // normalize arguments
+    // normalize arguments
   var args = [].slice.apply(arguments)
-  // remove client `id` argument
+    // remove client `id` argument
   args.shift()
-  // emit on self for module consumers, unless specified not to
-  if (id !== 'server') self.emit.apply(self,args)
+    // emit on self for module consumers, unless specified not to
+  if (id !== 'server') self.emit.apply(self, args)
   Object.keys(self.clients).map(function(clientId) {
     if (clientId === id) return
     var connection = self.clients[clientId].connection
-    // emit over connection
-    connection.emit.apply(connection,args)
+      // emit over connection
+    connection.emit.apply(connection, args)
   })
 };

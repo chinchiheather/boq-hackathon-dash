@@ -14,5 +14,8 @@
     "mongojs": "^2.4.0",
     "underscore": "^1.8.3",
     "websocket-stream": "^3.3.3"
+  },
+  "devDependencies": {
+    "jslint": "^0.10.3"
   }
 }
