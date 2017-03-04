@@ -1,18 +1,31 @@
-var server = "ws://localhost:8080";
+var server = "wss://localhost:8080";
 
 var Client = require("./classes/Client");
 var wsclient = require("ws").Client;
 var websocket = require('websocket-stream');
 var extend = require('extend')
-var duplexStream = websocket(server);
+var duplexStream = websocket(server,{ rejectUnauthorized: false });
 
 var client = new Client({
   serverStream: duplexStream
 });
 
+var joinedUser;
 // use the client.connection [Duplexconnection](https://github.com/pgte/duplex-connection) to react to remote events
 client.connection.on('join', function(user) {
-  console.log(user,'joined.')
-})
+  console.log('Connected to server.', user);
+  joinedUser = user;
+});
 
-console.log( client);
+client.connection.on('id', function(id){
+  console.log("Got ID:", id);
+});
+client.connection.on('settings', function(settings){
+  console.log(settings);
+});
+client.connection.on('transaction',function(data){
+  console.log(data);
+});
+client.connection.on('csv_finished',function(){
+  client.connection.emit('join','clientevent');
+});

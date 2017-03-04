@@ -25,7 +25,8 @@ Server.prototype.initialize = function(opts) {
     forwardEvents: [
       'init',
       'message',
-      'transaction'
+      'transaction',
+      'ready'
     ]
   };
   var settings = self.settings = extend({}, defaults, opts);
@@ -55,6 +56,7 @@ Server.prototype.connectClient = function(duplexStream) {
   self.bindClientEvents(client);
 
   // send client id and initial game settings
+  connection.emit('join', {});
   connection.emit('id', id);
   connection.emit('settings', settings);
 
@@ -127,9 +129,9 @@ Server.prototype.handleErrors = function(func) {
   var self = this
   return function() {
     try {
-      return func.apply(this,arguments)
+      return func.apply(this, arguments)
     } catch (error) {
-      self.emit('error',error)
+      self.emit('error', error)
     }
   }
 }

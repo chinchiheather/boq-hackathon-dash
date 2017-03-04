@@ -1,19 +1,19 @@
-var http = require('http');
-var express = require('express');
-var EventEmitter = require('events').EventEmitter
-var DuplexEmitter = require('duplex-emitter')
-var extend = require('extend')
-var path = require('path')
-var uuid = require('hat')
+var http = require('https');
+var WebSocketServer = require('ws').Server;
+var WebSocketStream = require('websocket-stream');
+let fs = require('fs');
+var fastcsv = require('fast-csv');
+
 var Server = require('./classes/Server');
-
-var WebSockets = require('ws');
-var wsServer = WebSockets.Server;
-var wsStream = require('websocket-stream');
-
-var webServer = http.createServer();
-var wss = new wsServer({server: webServer});
 var Router = require('./classes/Router');
+
+const options = {
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem')
+};
+
+var webServer = http.createServer(options);
+var wss = new WebSocketServer({server: webServer});
 webServer.on('request',Router);
 
 
@@ -24,13 +24,28 @@ var settings = {
 var server = new Server(settings);
 
 wss.on('connection', function(ws){
-  var stream = wsStream(ws);
+  var stream = WebSocketStream(ws);
   console.log("Client Connected.");
   server.connectClient(stream);
 });
 
 webServer.listen(8080);
 
-function sendString (stream) {
-  stream.write('hello world');
-}
+server.on('client.created', function(client){
+  console.log('Client Created');
+  client.connection.on('join', function(data){
+    console.log(arguments);
+  });
+
+  let stream = fs.createReadStream('./Data.csv');
+
+  var csvStream = fastcsv()
+    .on('data',function(data){
+      client.connection.emit('transaction', data);
+    })
+    .on('end',function(){
+      client.connection.emit('csv_finished');
+      console.log('done');
+    });
+  stream.pipe(csvStream);
+})

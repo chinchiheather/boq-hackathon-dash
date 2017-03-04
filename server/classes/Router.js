@@ -4,6 +4,7 @@ let fs = require('fs');
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
+let browserify = require('browserify');
 
 app.use(bodyParser.json());
 
@@ -11,10 +12,13 @@ app.use(bodyParser.json());
 app.get('/', function(req, res) {
 
   console.log('Get index');
-  fs.createReadStream('./index.html')
-  .pipe(res);
+  let istrm = fs.createReadStream('./index.html')
+  istrm.pipe(res);
 });
-
+app.get('/bundle.js',function(req,res){
+  let bundle = browserify('./client.js').bundle();
+  bundle.pipe(res);
+});
 app.post('/', function(req, res) {
 
   let message = req.body.message;
