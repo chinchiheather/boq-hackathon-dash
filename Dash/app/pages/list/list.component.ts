@@ -17,4 +17,7 @@ export class ListComponent {
     this.transactionService.getTransaction().subscribe(transactions => this.transactions = transactions);
   }
 
+  onSubmit() {
+
+  }
 }

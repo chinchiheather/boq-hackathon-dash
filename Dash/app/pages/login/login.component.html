@@ -1,8 +1,8 @@
 <StackLayout orientation="vertical">
-  <Image src="~/images/dash-logo.jpg" stretch="aspectFit"></Image>
-  <TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
-  <TextField hint="Password" secure="true"></TextField>
+  <Image src="~/images/dash-logo-small.png" stretch="aspectFit"></Image>
+  <TextField hint="Customer Access Number" keyboardType="number"></TextField>
+  <TextField hint="Personal Access Code" keyboardType="number"></TextField>
 
-  <Button text="Log in" (tap)="onLogin()" class="login-button"></Button>
-  <Button text="Sign up" class="signup-button"></Button>
+  <Button text="Login" (tap)="onLogin()" class="login-button"></Button>
+  <Label class="caption" text="Forgot password?"></Label>
 </StackLayout>

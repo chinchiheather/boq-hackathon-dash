@@ -23,6 +23,6 @@ setTimeout(function() {
 
 }, 10000);
 
-platformNativeScriptDynamic().bootstrapModule(AppModule);
+platformNativeScriptDynamic({startPageActionBarHidden: true}).bootstrapModule(AppModule);
 
 

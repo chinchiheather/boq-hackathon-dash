@@ -5,89 +5,22 @@ import { Observable } from "rxjs";
 export class TransactionService {
   TRANSACTION_MOCK = [
     {
-      name: 'Wire',
-      amount: '$3.99',
-      tax: '$0.39'
+      name: 'Bunnings',
+      description: 'Woodhouse 88 x 88mm 2.4m H3 Pink Primed Timber Posts x4',
+      amount: '$208.72',
+      date: '04/03/17'
     },
     {
-      name: 'Wood',
-      amount: '$1899',
-      tax: '$189.90'
+      name: 'Bunnings',
+      description: 'Woodhouse 66 x 18mm 5.4m Pine Moulding Fj Half Splayed Primed x8',
+      amount: '$138.24',
+      date: '04/03/17'
     },
     {
-      name: 'Truck',
-      amount: '$32,000',
-      tax: '$3,200'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
-    },
-    {
-      name: 'Clothing',
-      amount: '$45',
-      tax: '$4.50'
+      name: 'Mitre 10',
+      description: 'Dewalt 18V SDS+ Li-Ion Rotary Hammer',
+      amount: '$76.99',
+      date: '04/03/17'
     }
   ];
 
