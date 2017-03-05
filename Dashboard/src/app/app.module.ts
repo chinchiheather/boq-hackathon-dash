@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { TransactionService } from './shared/transaction.service';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -14,7 +14,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    TransactionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
