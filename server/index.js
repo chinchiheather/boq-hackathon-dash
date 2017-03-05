@@ -50,9 +50,10 @@ server.on('client.created', function(client){
 
   let stream = fs.createReadStream('./Data.csv');
 
-  var csvStream = fastcsv()
+  var csvStream = fastcsv({ headers: true })
     .on('data',function(data){
       let likelyClass = '';
+      console.log(data);
       let lcnum = 1;
       let classProbs = ml.getClasses(data);
       console.log(classProbs);

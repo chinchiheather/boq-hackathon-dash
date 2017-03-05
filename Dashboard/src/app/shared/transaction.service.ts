@@ -1,9 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Client } from 'ws';
-import { EventEmitter } from 'events';
-import * as DuplexEmitter from 'duplex-emitter'; 
-
+//import { Client } from 'ws';
+//import { EventEmitter } from 'events';
+//import * as DuplexEmitter from 'duplex-emitter';
+//
+//import * as _ from 'underscore';
+import * as client from '../../../../server/client';
 
 @Injectable()
 export class TransactionService {
@@ -98,5 +100,8 @@ export class TransactionService {
   getTransaction() {
     return Observable.of(this.TRANSACTION_MOCK);
   }
-
+  public Client = client;
+  constructor(){
+    console.log("STUFF!",client);
+  }
 }

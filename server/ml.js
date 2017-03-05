@@ -63,7 +63,7 @@ Ml.prototype.periodic = function(){
 };
 Ml.prototype.getRowAsNum = function(row){
   let rowAsNum = 0;
-  for(let field of row){
+  for(let key of Object.keys(row)){
     let nf = +field;
     if(isNaN(nf)){
       //  nf = field.split('').map((c)=>{return c.charCodeAt(0);});
