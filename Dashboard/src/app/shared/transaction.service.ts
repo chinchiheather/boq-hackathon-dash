@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 //import * as DuplexEmitter from 'duplex-emitter';
 //
 //import * as _ from 'underscore';
-import * as client from '../../../../server/client';
+import {Client} from '../../../../server/client';
 
 @Injectable()
 export class TransactionService {
@@ -100,8 +100,8 @@ export class TransactionService {
   getTransaction() {
     return Observable.of(this.TRANSACTION_MOCK);
   }
-  public Client = client;
+  public Client = Client;
   constructor(){
-    console.log("STUFF!",client);
+    console.log("STUFF!",Client);
   }
 }
