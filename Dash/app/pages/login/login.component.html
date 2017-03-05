@@ -1,0 +1,8 @@
+<StackLayout orientation="vertical">
+  <Image src="~/images/dash-logo.jpg" stretch="aspectFit"></Image>
+  <TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+  <TextField hint="Password" secure="true"></TextField>
+
+  <Button text="Log in" (tap)="onLogin()" class="login-button"></Button>
+  <Button text="Sign up" class="signup-button"></Button>
+</StackLayout>

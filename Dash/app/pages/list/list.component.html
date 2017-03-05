@@ -1,0 +1,25 @@
+<StackLayout class="list-container" orientation="vertical">
+
+  <StackLayout orientation="horizontal" class="transaction-row">
+    <Label text="name" verticalAlignment="center"></Label>
+    <Label text="amount" verticalAlignment="center"></Label>
+    <Label text="tax claim" verticalAlignment="center"></Label>
+  </StackLayout>
+
+  <ScrollView fillViewport="true">
+    <StackLayout orientation="vertical" class="table">
+      <StackLayout *ngFor="let transaction of transactions; let even = even; let odd = odd;"
+                   orientation="horizontal"
+                   class="transaction-row"
+                   [class.even]="even"
+                   [class.odd]="odd">
+        <Label [text]="transaction.name" verticalAlignment="center"></Label>
+        <Label [text]="transaction.amount" verticalAlignment="center"></Label>
+        <Label [text]="transaction.tax" verticalAlignment="center"></Label>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+
+</StackLayout>
+
+
