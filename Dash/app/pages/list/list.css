@@ -1,0 +1,71 @@
+.list-container {
+    width: 100%;
+    height: 100%;
+    background-color: #B90B0B;
+}
+
+.transaction-row {
+    width: 100%;
+    padding: 8px;
+}
+
+.body-container {
+    margin: 24px;
+    padding-top: 8px;
+    background-color: #f4f4f4;
+}
+
+
+.transaction-row Label {
+    padding: 8px;
+}
+
+
+.title {
+    color: #f4f4f4;
+    font-size: 24px;
+    margin-top: 12px;
+    margin-left: 16px;
+    text-align: center;
+}
+
+.tname {
+    font-size: 20px;
+    color: #565656;
+}
+
+.date-title {
+    font-weight: bold;
+}
+
+.date-val {
+    margin-top: -16px;
+    font-weight: bold;
+}
+
+.amt {
+    font-size: 28px;
+    line-height: 28px;
+}
+
+.aud {
+    color: #B90B0B;
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 8px;
+}
+
+.tdesc {
+    color: #bababa;
+}
+
+.line {
+    height: 1px;
+    background-color: #cdcdcd;
+    width: 80%;
+    margin-top: 24px;
+}
+
+SearchBar {
+    background-color: #cdcdcd;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "dotdash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "browserify": "^14.1.0",
+    "bufferutil": "^3.0.0",
+    "duplex-emitter": "^2.1.2",
+    "events": "^1.1.1",
+    "express": "^4.15.0",
+    "extend": "^3.0.0",
+    "fast-csv": "^2.4.0",
+    "fs": "0.0.1-security",
+    "hat": "0.0.3",
+    "http": "0.0.0",
+    "mongojs": "^2.4.0",
+    "underscore": "^1.8.3",
+    "utf-8-validate": "^3.0.1",
+    "websocket-stream": "^3.3.3",
+    "ws": "^2.2.0"
+  },
+  "devDependencies": {
+    "jslint": "^0.10.3"
+  }
+}

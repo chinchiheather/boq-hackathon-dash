@@ -1,0 +1,36 @@
+<StackLayout class="list-container" orientation="vertical">
+  <Label text="Taxable Transactions" class="title"></Label>
+
+  <StackLayout orientation="vertical" class="body-container">
+    <SearchBar #sb hint="Search" [text]="" (submit)="onSubmit(sb.text)"></SearchBar>
+
+  <ScrollView fillViewport="true">
+    <StackLayout orientation="vertical" class="table">
+      <StackLayout *ngFor="let transaction of transactions; let even = even; let odd = odd;"
+                   orientation="vertical"
+                   class="transaction-row">
+        <Label [text]="transaction.name" class="tname"></Label>
+        <Label [text]="transaction.description" class="tdesc"></Label>
+        <StackLayout orientation="horizontal">
+          <StackLayout orientation="vertical">
+            <Label class="date-title" text="Docket date"></Label>
+            <Label class="date-val" [text]="transaction.date"></Label>
+          </StackLayout>
+          <StackLayout orientation="vertical">
+            <Label class="date-title" text="Expense date"></Label>
+            <Label class="date-val" [text]="transaction.date"></Label>
+          </StackLayout>
+        </StackLayout>
+        <StackLayout orientation="horizontal" horizontalAlignment="right">
+          <Label [text]="transaction.amount" class="amt"></Label>
+          <Label text="AUD" class="aud"></Label>
+        </StackLayout>
+        <StackLayout class="line" orientation="horizontal"></StackLayout>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+  </StackLayout>
+
+</StackLayout>
+
+

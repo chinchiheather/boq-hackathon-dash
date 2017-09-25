@@ -1,0 +1,42 @@
+<StackLayout orientation="vertical" class="dashboard-container">
+  <Label text="Dash board" class="title"></Label>
+
+  <StackLayout orientation="vertical" class="body-container">
+    <StackLayout orientation="horizontal" class="boq-header">
+      <Image src="~/images/logo_BOQ.png" class="logo" stretch="aspectFit"></Image>
+      <Label text="Everyday Business Account" verticalAlignment="center"></Label>
+    </StackLayout>
+
+    <StackLayout orientation="vertical" class="feature">
+      <Label class="feature-header" text="Total taxable amount"></Label>
+      <StackLayout orientation="horizontal">
+        <Label class="dollar-sign" text="$"></Label>
+        <Label class="dollar-amt" text="24,764.46"></Label>
+      </StackLayout>
+    </StackLayout>
+
+    <StackLayout orientation="vertical" class="feature">
+      <Label class="feature-header" text="Number of taxable transactions"></Label>
+      <Label class="dollar-amt" text="4378"></Label>
+    </StackLayout>
+
+    <StackLayout orientation="vertical" class="feature">
+      <Label class="feature-header" text="Estimated return"></Label>
+      <StackLayout orientation="horizontal">
+        <Label class="dollar-sign" text="$"></Label>
+        <Label class="dollar-amt blue-font" text="987.50 *"></Label>
+      </StackLayout>
+    </StackLayout>
+
+    <Image src="~/images/image-graph.PNG" stretch="aspectFit" class="graph"></Image>
+    <Label text="March 2017" class="image-caption"></Label>
+
+    <DockLayout stretchLastChild="false">
+      <StackLayout orientation="horizontal" class="button-container" dock="bottom">
+        <Button text="Submit Tax" class="tax-btn"></Button>
+        <Button text="Details" (tap)="onDetailsClick()" class="details-btn"></Button>
+      </StackLayout>
+    </DockLayout>
+  </StackLayout>
+
+</StackLayout>
